@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 김서영/60221302/기초웹 과제#3 -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="page2.js"></script>
+    <title>명지 피트니스 신청 폼</title>
+  </head>
+  <body>
+    <header>
+      <!-- 로고 이미지와 텍스트를 포함한 홈 링크 -->
+      <a href="./page1.html" style="text-decoration: none" id="logo">
+        <img src="./image/logo.jpg" width="100" />
+        <h1>명지 피트니스</h1>
+      </a>
+      <!-- 내비게이션 메뉴 -->
+      <nav>
+        <a href="./page1.html">홈<i class="fa-solid fa-house"></i></a>
+        <a href="#">강사 소개 <i class="fa-solid fa-user"></i></a>
+        <a href="./page3.html"
+          >문의 게시판 <i class="fa-solid fa-comment"></i
+        ></a>
+        <a href="">공지사항 <i class="fa-solid fa-bell"></i></a>
+        <a href="#">프로그램 신청<i class="fa-solid fa-check"></i></a>
+      </nav>
+    </header>
+    <h2 id="formtitle">프로그램 신청서</h2>
+
+    <!-- 신청서 폼 -->
+    <form action="submit.html" method="post">
+      <!-- 사용자 기본정보 입력 필드셋 -->
+      <div class="fieldset">
+        <fieldset id="personalfield">
+          <legend>기본정보 입력란</legend>
+
+          <!-- 이름 입력 필드 -->
+          <div class="items">
+            <div class="item">
+              <label for="name">이름:</label>
+              <input type="text" id="name" name="name" autofocus />
+            </div>
+            <!-- 이메일 입력 필드 -->
+            <div class="item">
+              <label for="email">이메일:</label>
+              <input type="email" id="email" name="email" />
+              <!-- 동적으로 추가되는 피드백<p> 작성 -->
+            </div>
+            <!-- 전화번호 입력 필드 -->
+            <div class="item">
+              <label for="tel">전화번호:</label>
+              <input
+                type="tel"
+                id="tel"
+                name="tel"
+                placeholder="예: 010-1234-5678"
+              />
+            </div>
+            <!-- 성별 선택 라디오 버튼 -->
+            <div class="item">
+              <p>성별:</p>
+              <label for="gender_male">
+                <input
+                  type="radio"
+                  name="gender"
+                  id="gender_male"
+                  value="male"
+                />
+                남성
+              </label>
+              <label for="gender_female">
+                <input
+                  type="radio"
+                  name="gender"
+                  id="gender_female"
+                  value="female"
+                />
+                여성
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <!-- 프로그램 선택 필드셋 -->
+        <fieldset id="programfield">
+          <legend>프로그램 선택란</legend>
+
+          <!-- 프로그램 시작일 선택 필드 -->
+          <label for="start_date">프로그램 시작일 선택:</label>
+          <input type="date" id="start_date" name="start_date" />
+          <br /><br />
+
+          <!-- 프로그램 종류 선택 select-option -->
+          <label for="program">신청할 프로그램:</label>
+          <select id="program" name="program">
+            <option value="" disabled selected>프로그램을 선택하세요</option>
+            <option value="yoga">요가 프로그램</option>
+            <option value="aerobic">에어로빅 프로그램</option>
+            <option value="pilates">필라테스 프로그램</option>
+            <option value="swimming">수영 프로그램</option>
+            <option value="crossfit">크로스핏 프로그램</option>
+            <option value="cycling">사이클링 프로그램</option>
+            <option value="table-tennis">탁구 프로그램</option>
+            <option value="badminton">배드민턴 프로그램</option>
+          </select>
+          <br />
+
+          <!-- 참여 요일 선택 체크박스 -->
+          <p>참여 요일 선택:</p>
+          <label for="mon"
+            ><input type="checkbox" id="mon" name="week" value="mon" />월</label
+          >
+          <label for="tue"
+            ><input type="checkbox" id="tue" name="week" value="tue" />화</label
+          >
+          <label for="wed"
+            ><input type="checkbox" id="wed" name="week" value="wed" />수</label
+          >
+          <label for="thu"
+            ><input type="checkbox" id="thu" name="week" value="thu" />목</label
+          >
+          <label for="fri"
+            ><input type="checkbox" id="fri" name="week" value="fri" />금</label
+          >
+          <label for="sat"
+            ><input type="checkbox" id="sat" name="week" value="sat" />토</label
+          >
+          <label for="sun"
+            ><input type="checkbox" id="sun" name="week" value="sun" />일</label
+          >
+          <br /><br />
+
+          <hr />
+          <!-- 사물함 이용 여부 선택 라디오 버튼 -->
+          <p style="display: inline-block">사물함 이용 여부:</p>
+          <br />
+          <label for="locker_yes"
+            ><input
+              type="radio"
+              id="locker_yes"
+              name="locker"
+              value="yes"
+            />이용함</label
+          >
+          <label for="locker_no"
+            ><input type="radio" id="locker_no" name="locker" value="no" />이용
+            안 함</label
+          >
+        </fieldset>
+        <!-- 건강 상태 입력 필드셋 -->
+        <fieldset id="healthfield">
+          <legend>건강상태 입력란</legend>
+          <!-- 건강 상태 선택 체크 박스 -->
+          <p>건강 상태 체크 (해당되는 항목이 있다면 체크해주세요):</p>
+          <div class="grid-layout2">
+            <label for="back_pain"
+              ><input
+                type="checkbox"
+                id="back_pain"
+                name="health"
+                value="back_pain"
+              />
+              허리 통증</label
+            >
+            <label for="knee_pain"
+              ><input
+                type="checkbox"
+                id="knee_pain"
+                name="health"
+                value="knee_pain"
+              />
+              무릎 통증</label
+            >
+            <label for="heart"
+              ><input type="checkbox" id="heart" name="health" value="heart" />
+              심장 질환</label
+            >
+            <label for="diabetes"
+              ><input
+                type="checkbox"
+                id="diabetes"
+                name="health"
+                value="diabetes"
+              />
+              당뇨</label
+            >
+            <label for="none"
+              ><input type="checkbox" id="none" name="health" value="none" />
+              해당 없음</label
+            >
+          </div>
+          <br />
+          <!--체크 박스에 없는 증상을 작성하는 기타 입력 필드 -->
+          <label for="other">기타:</label>
+          <input
+            type="text"
+            id="other"
+            name="health"
+            placeholder="기타 증상 또는 질환 입력"
+          /><br /><br />
+          <hr />
+
+          <!-- 추가 건강 정보 작성 textarea -->
+          <label for="health_info">추가 건강 정보 작성</label><br />
+          <textarea
+            id="health_info"
+            name="health_info"
+            rows="4"
+            cols="50"
+            placeholder="강사에게 꼭 전달해야 할 건강 상태나 주의할 점이 있으면 작성해주세요."
+          ></textarea>
+          <br /><br />
+        </fieldset>
+
+        <!-- 운동 경력 및 목표 입력 필드셋 -->
+        <fieldset id="goalfield">
+          <legend>운동 경력 및 목표 작성란</legend>
+          <br />
+          <!-- 운동 경력 및 경험 작성 textarea -->
+          <label for="experience">운동 경력 및 경험</label><br />
+          <textarea
+            id="experience"
+            name="experience"
+            rows="5"
+            cols="50"
+            placeholder="현재까지의 운동 경력이나 경험이 있다면 간단하게 작성해주세요."
+          ></textarea>
+          <br /><br />
+
+          <!-- 개인 운동 목표 작성 textarea -->
+          <label for="goal">개인 운동 목표</label><br />
+          <textarea
+            id="goal"
+            name="goal"
+            rows="5"
+            cols="50"
+            placeholder="프로그램을 통해 달성하고 싶은 목표를 작성해주세요."
+          ></textarea>
+          <br /><br />
+        </fieldset>
+      </div>
+      <br />
+
+      <!-- 폼 제출 및 취소 버튼 -->
+      <div id="button">
+        <button type="submit">신청하기</button>
+        <button type="reset">취소</button>
+      </div>
+    </form>
+    <br />
+
+    <!-- 하단 푸터 -->
+    <footer>
+      <p>© 2024 명지 피트니스 신청 폼</p>
+      <p>김서영/60221302/기초웹 과제#3</p>
+    </footer>
+  </body>
+</html>

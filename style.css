@@ -1,0 +1,859 @@
+/* style.css */
+
+/* 전체 페이지 스타일 */
+
+/* 모든 요소에 box-sizing을 일관되게 적용하고 HTML 문서의 기본 글꼴과 스타일을 설정.*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 미디어 쿼리 적용시 자연스러운 요소의 크기 전환 효과 적용 */
+body * {
+  transition: font-size 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: relative;
+}
+
+main {
+  max-width: 1200px; /* 최대 폭을 설정하여 중앙에 고정 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+/* Body 배경 이미지
+하단 우측에 고정된 반투명 배경 이미지를 적용, 투명도 설정을 위해 가상 요소 사용.*/
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 60%;
+  background-image: url("./image/1.jpg");
+  background-size: contain;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 헤더 스타일 */
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #0c2963;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  position: sticky; /* sticky를 header에 적용 */
+  top: 0; /* 페이지 최상단에 고정 */
+  z-index: 1000;
+}
+
+header h1 {
+  color: white;
+  font-size: 50px;
+  margin: 10px 0 20px;
+}
+
+#logo {
+  /* 로고 링크의 텍스트 스타일 */
+  text-decoration: none;
+  color: black;
+}
+
+header a {
+  color: white;
+}
+
+header img {
+  margin-top: 20px;
+  vertical-align: middle;
+}
+
+/* nav bar 스타일 */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 5px;
+  height: 100%;
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  text-decoration: none;
+  background-color: #526488;
+}
+
+/* 섹션별 스타일 */
+/* 명지피트니스 프로그램 소개 섹션 스타일 */
+.section > h1 {
+  font-weight: 800;
+}
+
+.introduction {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.introduction > section {
+  height: fit-content;
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  border-style: dashed;
+  border-width: 4px;
+  border-color: rgba(157, 157, 157);
+  padding: 30px;
+  width: 1100px;
+}
+
+/* 각 운동별 설명 섹션에 마우스 올렸을 때 테두리 효과 */
+.introduction > section:hover {
+  border-color: rgba(134, 182, 230, 0.8);
+}
+
+.introduction h2 {
+  font-size: 30px;
+}
+
+.introduction p {
+  font-size: 20px;
+}
+
+.introduction ul {
+  font-size: 19px;
+  padding-top: 5px;
+}
+
+.introduction section:nth-of-type(4) ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2열로 설정 */
+  grid-column-gap: 50px;
+  grid-row-gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.introduction li a:hover {
+  font-weight: 700;
+}
+
+.introduction li a {
+  text-decoration: none;
+  color: black;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.introduction > section:nth-of-type(2n) .contents {
+  align-items: flex-start; /* 짝수 section은 왼쪽 정렬 */
+}
+
+.introduction > section:nth-of-type(2n + 1) .contents {
+  align-items: flex-end; /* 홀수 section은 오른쪽 정렬 */
+}
+.introduction .section:nth-of-type(2n) {
+  align-self: flex-start;
+}
+
+.introduction section:nth-of-type(2n + 1) {
+  align-self: flex-end;
+}
+
+.introduction section:nth-of-type(2n + 1) img {
+  padding-left: 20px;
+}
+
+.introduction section:nth-of-type(2n) img {
+  padding-right: 20px;
+}
+
+.introduction img {
+  height: 300px;
+}
+
+/* 시간표 바로가기 기능 div 스타일 */
+.goschedule2 {
+  display: flex;
+}
+
+#goschedule {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #0d3870;
+  opacity: 0.6;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 90px;
+  aspect-ratio: 1 / 1;
+  gap: 5px;
+}
+
+.contents + a {
+  color: white;
+  text-decoration: none;
+}
+
+#goschedule img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover; /* 이미지를 사각형으로 유지 */
+  padding: 0;
+}
+
+#goschedule:hover {
+  opacity: 1;
+}
+
+#programtitle {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.programdetail {
+  margin-bottom: 50px;
+}
+
+/* 프로그램 소개 섹션. 그리드 레이아웃 적용. */
+.section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.section > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(240, 240, 240, 0.8);
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 5px 9px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease; /* 부드러운 전환 효과 */
+  width: 440px;
+  height: 470px;
+}
+
+/* 마우스를 올렸을 때의 box-shadow 효과 */
+.section > section:hover {
+  box-shadow: 0 0 15px 5px rgba(134, 182, 230, 0.8);
+}
+
+.section img {
+  width: 300px;
+}
+
+.section p {
+  font-size: 20px;
+  text-align: center;
+}
+/* 프로그램 소개 섹션의 링크 스타일 */
+
+.section a:link {
+  font-weight: 700;
+  color: #0c2963;
+  text-decoration: none;
+}
+
+.section a:visited {
+  color: #a1a0a0;
+}
+.section a:hover {
+  background-color: rgba(134, 182, 230, 0.7);
+  border-radius: 4px;
+}
+
+/* 시간표 테이블 스타일 */
+
+.table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.table-container {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+caption {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+thead th {
+  background-color: #0c2963;
+  color: white;
+}
+
+tfoot td {
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+/* 신청 폼 이동 버튼 스타일 */
+
+#goformbutton {
+  margin: 50px 0;
+  width: 300px;
+  height: 70px;
+  background-color: rgba(134, 182, 230, 0.7);
+  border: none;
+  border-radius: 40px;
+  text-align: center;
+}
+
+#goformbutton:hover {
+  background-color: rgba(103, 179, 255, 0.7);
+}
+
+#goform:hover::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url(./image/pen.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#goform a {
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 800;
+  color: #0c2963;
+}
+
+/* 푸터 스타일 */
+footer {
+  margin-top: 30px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* 미디어 쿼리 화면크기 1200px이하 일때 */
+@media screen and (max-width: 1200px) {
+  .introduction section {
+    width: 100%;
+    align-items: center;
+  }
+
+  .goschedule2 {
+    flex-direction: column;
+  }
+
+  #goschedule {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    margin: 20px 0 0 0;
+  }
+
+  #goschedule img {
+    display: none;
+  }
+
+  .section section {
+    width: 280px;
+    height: 380px;
+  }
+
+  .section img {
+    width: 230px;
+  }
+  .section p {
+    font-size: 15px;
+  }
+}
+
+/* 화면크기 800px 이하일때 */
+@media screen and (max-width: 800px) {
+  header h1 {
+    font-size: 30px;
+  }
+
+  nav {
+    justify-content: space-evenly;
+    padding: 0;
+  }
+
+  nav a {
+    font-size: 11px;
+    margin: 0;
+    gap: 3px;
+  }
+
+  .introduction section {
+    justify-content: center;
+  }
+
+  .section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section section {
+    width: 300px;
+    height: 400x;
+  }
+
+  table {
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .introduction img {
+    height: 200px;
+  }
+
+  .introduction section:nth-of-type(4) ul {
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
+    font-size: 15px;
+  }
+
+  #goformbutton {
+    width: 120px;
+    height: 40px;
+  }
+
+  #goform a {
+    font-size: 10px;
+  }
+}
+
+/* 화면 크기 600px이하 일때 */
+@media screen and (max-width: 600px) {
+  .introduction img {
+    display: none;
+  }
+  .introduction section {
+    margin: 15px 0;
+  }
+
+  .introduction h2 {
+    font-size: 20px;
+  }
+  .introduction p {
+    font-size: 13px;
+  }
+  .introduction ul {
+    font-size: 13px;
+  }
+
+  .section {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+
+  .goschedule2 {
+    width: 100%;
+  }
+
+  .contents {
+    align-items: center !important;
+  }
+
+  #programtitle {
+    font-size: 20px;
+  }
+
+  .section section {
+    width: 280px;
+    height: 280px;
+  }
+  .section p {
+    font-size: 11px;
+  }
+
+  .section img {
+    width: 180px;
+  }
+
+  .section h2 {
+    font-size: 19px;
+  }
+
+  .section a {
+    font-size: 13px;
+  }
+
+  .introduction section:nth-of-type(4) ul {
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    font-size: 11px;
+  }
+
+  .table {
+    margin: 0px;
+  }
+  table {
+    font-size: 6px;
+    width: 100%;
+  }
+
+  .table h2 {
+    font-size: 20px;
+  }
+
+  .table caption {
+    font-size: 11px;
+  }
+
+  th,
+  td {
+    padding: 2px;
+    min-width: 10px;
+  }
+
+  body::after {
+    width: 30%;
+  }
+}
+
+/* 확대 효과를 위한 초기 스타일 */
+.zoom-target {
+  transition: transform 0.5s ease, border 0.5s ease;
+}
+
+.zoom-target.zoom {
+  transform: scale(1.3); /* 확대 */
+  box-shadow: 0 0 15px 5px rgba(134, 182, 230, 0.8);
+}
+
+/* page2 신청 폼 스타일 */
+form {
+  width: 60%;
+  margin: auto;
+  padding: 30px;
+  border: 4px solid #ddd;
+  border-radius: 8px;
+}
+
+#formtitle {
+  font-size: 30px;
+  margin: 60px 0 40px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.grid-layout2 {
+  display: grid;
+  width: 50%;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 각 라벨과 입력 필드 스타일 */
+
+legend {
+  font-size: 25px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* 필드셋과 레전드 스타일 */
+fieldset {
+  padding: 15px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+}
+
+legend {
+  font-weight: bold;
+  color: #555;
+}
+
+/* 라벨과 입력 필드 스타일 */
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 라디오 및 체크박스 정렬 */
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#button {
+  display: flex;
+}
+
+/* 제출 및 취소 버튼 스타일 */
+button[type="submit"],
+button[type="reset"] {
+  width: 48%;
+  padding: 10px;
+  margin: 10px 1%;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+button[type="submit"] {
+  background-color: #0c2963;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #14429f;
+  color: white;
+}
+
+button[type="reset"] {
+  background-color: rgb(175, 175, 175);
+  color: rgb(0, 0, 0);
+}
+
+button[type="reset"]:hover {
+  background-color: rgb(210, 209, 209);
+  color: rgb(0, 0, 0);
+}
+
+input:focus {
+  background-color: #eaeaea;
+}
+
+@media screen and (max-width: 800px) {
+  form {
+    width: 80%;
+    padding: 15px;
+  }
+  #formtitle {
+    margin: 30px 0;
+    font-size: 20px;
+  }
+  legend {
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+  p {
+    font-size: 13px;
+  }
+  .grid-layout2 {
+    width: 80%;
+  }
+}
+
+/* 문의게시판 스타일*/
+/* 리스트 항목 스타일 */
+#inquiry-list li {
+  display: flex;
+  flex-direction: column; /* Flexbox의 방향을 세로로 변경 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* 항목 구분선 */
+  cursor: pointer;
+  position: relative; /* 삼각형 아이콘의 기준 위치 설정 */
+}
+
+/* 제목과 삭제 버튼 */
+#inquiry-list li strong {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#inquiry-list li .delete-btn {
+  align-self: flex-end; /* 삭제 버튼을 오른쪽으로 정렬 */
+  margin-top: -20px; /* 제목과 겹치지 않도록 조정 */
+  padding: 5px 10px;
+  border: none;
+  background-color: #ff4d4d;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* 삼각형 아이콘 스타일 */
+#inquiry-list li::before {
+  content: "▶"; /* 닫힌 상태 */
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+
+/* 드롭다운 활성화 시 (열림 상태) */
+#inquiry-list li.open::before {
+  transform: rotate(90deg); /* 삼각형 회전 */
+}
+
+/* 문의 내용 (기본 숨김 처리) */
+#inquiry-list li .content {
+  display: none; /* 기본적으로 숨김 처리 */
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* 드롭다운 활성화 시 내용 표시 */
+#inquiry-list li.open .content {
+  display: block;
+}
+
+#inquiry-list li.open::before {
+  transform: rotate(90deg); /* 삼각형 회전 */
+}
+
+/* 삭제 버튼 기본 스타일 */
+.delete-btn {
+  margin-left: 10px; /* 버튼과 텍스트 간격 */
+  padding: 5px 10px; /* 버튼 내부 여백 */
+  border: none; /* 버튼 테두리 제거 */
+  background-color: #ff4d4d; /* 버튼 배경색 (빨간색) */
+  color: white; /* 텍스트 색상 */
+  cursor: pointer; /* 마우스 커서 스타일 변경 */
+  border-radius: 5px; /* 버튼 모서리 둥글게 */
+  font-size: 14px; /* 폰트 크기 */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 애니메이션 */
+}
+
+/* 삭제 버튼 호버 시 스타일 */
+.delete-btn:hover {
+  background-color: #e60000; /* 호버 시 어두운 빨간색 */
+  transform: scale(1.05); /* 살짝 확대 */
+}
+
+/* 삭제 버튼 활성화 상태 클릭 시 스타일 */
+.delete-btn:active {
+  background-color: #cc0000; /* 클릭 시 더 어두운 빨간색 */
+  transform: scale(1); /* 원래 크기로 */
+}
+
+#inquiry-form {
+  width: 400px;
+}
+
+.program-details {
+  display: none; /* 기본 숨김 */
+}
+
+.program-img {
+  cursor: pointer; /* 클릭 가능한 포인터 표시 */
+}
+
+.no-pointer {
+  pointer-events: none; /* 마우스 이벤트 비활성화 */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border: 3px solid #ccc;
+}

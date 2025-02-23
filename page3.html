@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 김서영/60221302/기초웹 과제#3 -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="page1_and_3.js"></script>
+
+    <title>명지 피트니스</title>
+  </head>
+  <body>
+    <!-- 헤더 섹션 -->
+    <header>
+      <!-- 로고 이미지와 텍스트를 포함한 홈 링크 -->
+      <a href="#" style="text-decoration: none" id="logo">
+        <img src="./image/logo.jpg" alt="명지피트니스 로고" width="100" />
+        <h1>명지 피트니스</h1>
+      </a>
+      <!-- 내비게이션 메뉴 -->
+      <nav>
+        <a href="./page1.html">홈 <i class="fa-solid fa-house"></i></a>
+        <a href="#">강사 소개 <i class="fa-solid fa-user"></i></a>
+        <a href="#">문의 게시판 <i class="fa-solid fa-comment"></i></a>
+        <a href="#">공지사항 <i class="fa-solid fa-bell"></i></a>
+        <a href="./page2.html"
+          >프로그램 신청 <i class="fa-solid fa-check"></i
+        ></a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inquiry-board">
+        <h2>기존 문의</h2>
+        <ul id="inquiry-list">
+          <!-- 기존 문의 데이터가 동적으로 추가될 예정 -->
+        </ul>
+
+        <h2>새로운 문의 작성</h2>
+        <form id="inquiry-form">
+          <input
+            type="text"
+            id="inquiry-title"
+            placeholder="문의 제목을 입력하세요"
+            required
+          />
+          <textarea
+            id="inquiry-text"
+            placeholder="문의 내용을 입력하세요"
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit">문의 남기기</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>© 2024 명지 피트니스 문의게시판</p>
+      <p>김서영/60221302/기초웹 과제#3</p>
+    </footer>
+  </body>
+</html>
